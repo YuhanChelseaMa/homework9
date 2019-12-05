@@ -30,7 +30,7 @@
     	console.log("Hi")
 
 			let cityName = $('#location').val();
-			console.log('clicked');
+			console.log('cityName');
 			$('#forecast').css('display', 'block');
 			if(cityName.length == 0){
 				cityName = 'Ann+Arbor';
@@ -46,12 +46,20 @@
 			unit = "imperial";
 			}
 
+		// 	if ("cityName" in json){
+		// 		$("#loc").text(json.name);
+		// 	 }
+		// 	else{
+		// 		$("#loc").text("error connecting to API");
+		// }
+
     	// You will need to update this query with the city, weather format (Celsius or Fahrenheit) and your OpenWeatherMap ID
 			let query = "https://api.openweathermap.org/data/2.5/weather?q="+ cityName + "&units=" + unit + "&APPID=3d46518578a563b61224fbde0b136f9c";
 			console.log("Query is :" + query)
 			$.getJSON(query,function(json){
         console.log(JSON.stringify(json));
 				$("#forecast").show();
+				$("#loc").text(json["name"]);
 				//  the current temperature
 				$("#temp").text(json["main"]["temp"]);
 				//  the high temperature for the day
@@ -62,6 +70,7 @@
 				$("#tempImg").attr("src", "http://openweathermap.org/img/wn/" + json["weather"][0]["icon"] + "@2x.png")
 	    })
     }
+
 </script>
 </head>
 
