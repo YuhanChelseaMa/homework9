@@ -39,11 +39,11 @@
 			let unit = $("#fahrenheit").val()
 			if ($('#celcius:checked').val()) {
 			console.log("celsius");
-			unit = $("#celcius").val();
+			unit = "metric"
 			}
 			else {
 			console.log("fahrenheit");
-			unit = $("#fahrenheit").val();
+			unit = "imperial";
 			}
 
     	// You will need to update this query with the city, weather format (Celsius or Fahrenheit) and your OpenWeatherMap ID
